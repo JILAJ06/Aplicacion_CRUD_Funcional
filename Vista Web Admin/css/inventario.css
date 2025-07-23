@@ -1,0 +1,647 @@
+.inventario-container {
+    padding: 20px;
+    background: #f5f5f0;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.products-table {
+    width: 100%;
+    background: white;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+.products-table thead {
+    background-color: #D8D8C0;
+    color: black;
+}
+
+.products-table th {
+    padding: 12px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    text-transform: none;
+    border: 1px solid black;
+}
+
+.products-table tbody tr{
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.products-table tbdoy tr:hover{
+    background-color: #f5f5f5;
+}
+
+.products-table tbody tr.selected{
+    background-color: #e3f2fd;
+    border-left: 3px solid #2196f3;
+}
+
+.column-codigo{
+    width: 196px;
+}
+
+.column-producto{
+    width: 295px;
+}
+
+.column-cat{
+    width: 170px;
+}
+
+.column-id{
+    width: 170px;
+}
+
+.column-marca,
+.column-precio,
+.column-fechaent,
+.column-fechasal,
+.column-stockalm,
+.column-stockex,
+.column-fechacad{
+    width: 190px;
+}
+
+.products-table tr {
+    height: 80px;
+    border: 1px solid black;
+}
+
+.products-table tbody tr {
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.products-table tbody tr:hover {
+    background-color: rgba(212, 197, 161, 0.2) !important;
+    transform: none;
+    box-shadow: none;
+}
+
+.products-table tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.products-table tbody tr:nth-child(even):hover {
+    background: #f0f4ff;
+}
+
+.products-table tbody tr.selected {
+    background-color: #e6f3fe !important;
+    border: 2.5px solid #2196f3 !important;
+}
+
+.products-table td {
+    padding: 10px 8px;
+    border: 1px solid black;
+    vertical-align: middle;
+    color: #000000;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Estilos específicos para diferentes columnas */
+.products-table td:first-child {
+    font-weight: 400;
+    color: #000000;
+    font-family: inherit;
+}
+
+.products-table td:nth-child(2) {
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+}
+
+.products-table td:nth-child(3),
+.products-table td:nth-child(4) {
+    text-align: center;
+}
+
+.products-table td:nth-child(9),
+.products-table td:nth-child(10) {
+    text-align: center;
+    font-weight: 400;
+    color: #000000;
+}
+
+.products-table td:nth-child(11) {
+    text-align: center;
+    font-weight: 500;
+    color: #007e0a;
+}
+
+/* Estilos para los botones de acción */
+.action-buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.btn-add {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.btn-add:hover {
+    background: #d4f4d4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(45, 106, 45, 0.2);
+}
+
+.btn-delete,
+.btn-edit {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.btn-edit:hover {
+    background: #fff3c4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(245, 124, 0, 0.2);
+}
+
+
+/* Botón de filtro global (categoría, día, mes, etc.) */
+.btn-category, .btn-dropdown, .btn-filter, .btn-mes, .btn-dia {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 25px;
+    min-width: 140px;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.10);
+}
+
+.btn-category:hover, .btn-dropdown:hover, .btn-filter:hover, .btn-mes:hover, .btn-dia:hover {
+    background: #f0f4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 106, 245, 0.13);
+}
+
+.btn-delete:hover {
+    background: #ffebee;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(244, 67, 54, 0.2);
+}
+
+.btn-action i {
+    font-size: 16px;
+}
+
+/* Dropdown para categorías */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.category-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.category-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Flecha animada global para todos los menús de filtro */
+.dropdown-arrow {
+    margin-left: 5px;
+    font-size: 15px;
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+}
+.dropdown-container.active .dropdown-arrow,
+.dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* Menú desplegable global para todos los filtros (categoría, día, mes, etc.) */
+.dropdown-menu, .dropdown-content, #dia-combobox-list, #meses-combobox-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    z-index: 1000;
+    max-height: 220px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s;
+    padding: 4px 0;
+    min-width: 160px;
+    scrollbar-width: thin;
+    scrollbar-color: #bdbdbd #f5f5f0;
+}
+.dropdown-container.active .dropdown-menu,
+.dropdown.active .dropdown-content,
+.dropdown.active #dia-combobox-list,
+.dropdown.active #meses-combobox-list {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Scrollbar personalizado para todos los menús de filtro */
+.dropdown-menu::-webkit-scrollbar,
+.dropdown-content::-webkit-scrollbar,
+#dia-combobox-list::-webkit-scrollbar,
+#meses-combobox-list::-webkit-scrollbar {
+    width: 8px;
+    background: #f5f5f0;
+    border-radius: 8px;
+}
+.dropdown-menu::-webkit-scrollbar-thumb,
+.dropdown-content::-webkit-scrollbar-thumb,
+#dia-combobox-list::-webkit-scrollbar-thumb,
+#meses-combobox-list::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 8px;
+}
+
+
+/* Ítems de menú de filtro global (categoría, día, mes, etc.) */
+.dropdown-item, .dropdown-content a, #dia-combobox-list a, #meses-combobox-list a {
+    color: black;
+    padding: 10px 24px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s;
+    margin: 2px 8px;
+    cursor: pointer;
+    border-bottom: none;
+}
+.dropdown-item:hover, .dropdown-content a:hover, #dia-combobox-list a:hover, #meses-combobox-list a:hover {
+    background: #f0f4ff;
+}
+.dropdown-item.selected, .dropdown-content a.selected, #dia-combobox-list a.selected, #meses-combobox-list a.selected {
+    background: #e1bee7;
+    font-weight: 600;
+}
+
+/* Estilos para los modales */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    background: #f5f5f0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1);
+}
+
+.modal-small {
+    max-width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 2px solid #333;
+    background: #e8e8d0;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background: #d0d0c0;
+    color: #333;
+}
+
+.modal-form {
+    padding: 25px;
+}
+
+.modal-content {
+    padding: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    color: #333;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #666;
+    box-shadow: 0 0 0 3px rgba(102, 102, 102, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.btn-cancel,
+.btn-accept,
+.btn-delete-confirm {
+    padding: 12px 30px;
+    border: 2px solid #333;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.btn-cancel {
+    background: white;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.btn-accept {
+    background: #d4f4d4;
+    color: #333;
+}
+
+.btn-accept:hover {
+    background: #c0e8c0;
+    transform: translateY(-2px);
+}
+
+.btn-delete-confirm {
+    background: #ffebee;
+    color: #d32f2f;
+    border-color: #d32f2f;
+}
+
+.btn-delete-confirm:hover {
+    background: #ffcdd2;
+    transform: translateY(-2px);
+}
+
+/* Estilos para el modal de eliminación */
+.delete-warning {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.delete-warning i {
+    font-size: 48px;
+    color: #ff9800;
+    margin-bottom: 15px;
+}
+
+.delete-warning p {
+    margin: 10px 0;
+    color: #333;
+}
+
+.delete-product-info {
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Notificaciones */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+}
+
+.notification.success {
+    background-color: #4caf50;
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .inventario-container {
+        margin: 10px;
+        padding: 15px;
+        overflow-x: auto;
+    }
+    
+    .products-table {
+        min-width: 1000px;
+        font-size: 12px;
+    }
+    
+    .products-table th,
+    .products-table td {
+        padding: 8px 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .inventario-container {
+        margin: 5px;
+        padding: 10px;
+    }
+    
+    .products-table {
+        font-size: 11px;
+    }
+    
+    .products-table th,
+    .products-table td {
+        padding: 6px 4px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-action {
+        width: 100%;
+        padding: 12px 20px;
+    }
+    
+    .modal-container {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-action {
+        font-size: 13px;
+        padding: 10px 15px;
+        min-width: auto;
+    }
+    
+    .modal-header {
+        padding: 15px 20px;
+    }
+    
+    .modal-form,
+    .modal-content {
+        padding: 20px;
+    }
+}
